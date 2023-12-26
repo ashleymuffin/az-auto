@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ Autoparts Store : High Quality Used Autoparts in USA</title>
+    <link rel="stylesheet" href="Stylesheet-1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="icon" href="2.png" type="image/png" sizes="500x500">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="1-removebg-preview.png" alt="Your Logo">
+        </div>
+
+        <div class="header-content">
+            <nav class="phone-number">
+                <p>+1 (218) 774-4255</p>
+                <a href="Tel:+1 218 774 4255" class="nav-button-call-now">Call Now</a>
+            </nav>
+            <nav class="nav-buttons">
+                <a href="#" class="nav-button">Contact</a>
+                <a href="#" class="nav-button">Order</a>
+                <a href="#" class="nav-button">Blog</a>
+                <a href="#" class="nav-button">About</a>
+            </nav>
+        </div>
+
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <div class="container-1">
+                <h2>Az Autoparts Store</h2>
+                <h1>High Quality Used Autoparts in USA</h1>
+                <p>Get the most high-quality recycled auto & truck parts at the most affordable prices.</p>
+                <p>Call us today! <span class="blinking-number">+1 (218) 774-4255</span></p>
+                <a href="Tel:+1 218 774 4255" class="button-search">Call us now</a>
+            </div>
+            <div class="container-2">
+                <div class="image-1">
+                    <img src="product-engine.png" alt="Banner Image">
+                    <h4>Looking for an Engine? </h4>
+                </div>
+            </div>
+            <div class="container-3">
+                <div class="image-2">
+                    <img src="product-transmission-2-removebg-preview.png" alt="Banner Image">
+                    <h4>Or a Transmission? </h4>
+                </div> 
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-buttons');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                navMenu.style.top = '69px'; // Adjust the height based on your header height
+            } else {
+                navMenu.style.top = '-100%';
+            }
+        });
+
+        document.querySelectorAll('.nav-button').forEach((item) => {
+            item.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                navMenu.style.top = '-100%'; // Hide the menu when a nav button is clicked
+            });
+        });
+
+        function limitSearchText() {
+            var buttonText = document.querySelector('.button-search');
+            var maxLength = 11;
+
+            var currentText = buttonText.textContent;
+
+            if (currentText.length > maxLength) {
+                var newText = currentText.substring(0, maxLength);
+                buttonText.textContent = newText;
+            }
+        }
+    </script>
+</body>
+</html>

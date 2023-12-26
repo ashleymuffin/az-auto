@@ -1,0 +1,573 @@
+*{
+    padding: 0 ;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden; /* Disable horizontal scrollbar */
+    overflow-y: auto; /* Enable vertical scrollbar only when needed */
+    background-color: blue;
+}
+
+header {
+    background-color: beige;
+    color: #000;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    height: 89px;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Adjust z-index based on your design needs */
+    top: 0;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    cursor: pointer;
+    height: 3px;
+    width: 25px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+@media(max-width: 768px){
+
+    
+    .hamburger{
+        display: inline;
+        z-index: 2;
+        
+    }
+    .nav-section{
+        display: none;
+    }
+    .bar{
+        background-color: black;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-buttons {
+        position: fixed;
+        left: 0;
+        top: -100%; /* Initial position above the header */
+        gap: 0;
+        flex-direction: column;
+        background-color: white; /* Set background color to white */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1;
+    }
+
+    .nav-button{
+        margin: 16px 0;
+
+    }
+
+    .nav-buttons.active{
+        left: 0;
+    }
+}
+
+/* Default styles for larger screens */
+.nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: #050A30;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+
+
+.logo {
+    padding-left: 55px;
+    grid-column: 1;
+}
+
+.header-content {
+    /* Adjusted styles for grid */
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.phone-number {
+    color: red;
+    
+    font-family: "Lato";
+    font-size: 20px;
+    margin-right: 10px;
+    
+}
+
+.phone-number {
+    display: flex;
+    align-items: center;
+}
+
+.phone-number p{
+    padding-right: 10px;
+    font-family: "Roboto";
+}
+
+.phone-number p:hover{
+    cursor: pointer;
+}
+
+.blinking-number{
+    color: blue;
+}
+
+.phone-number p , .blinking-number {
+    margin: 0; /* Remove default margin for better alignment */
+    animation: fadeInOut 1s infinite ease-in-out; /* Apply fadeInOut animation to the phone number */
+}
+
+.phone-number p,
+.nav-button-call-now {
+    margin: 0; /* Remove default margin for better alignment */
+}
+
+.nav-buttons {
+    display: flex;
+    
+    font-size: 20px;
+}
+
+.nav-button {
+    margin-left: 20px;
+    color: #3B3B3B;
+    text-decoration: none;
+    padding-right: 20px;
+    font-family: "Lato";
+}
+
+.phone-number a:hover{
+    color: blue;
+
+}
+
+.nav-button:hover {
+    color: blue;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+
+@media screen and (max-width: 768px) {
+    header {
+        background-color: white;
+        color: #000;
+        display: grid; /* Use grid instead of flex */
+        grid-template-columns: auto 1fr auto; /* Three columns: logo, header content, hamburger */
+        grid-template-rows: 1fr; /* Single row for the header */
+        align-items: center;
+        padding: 10px 20px;
+        justify-content: space-between;
+        height: 69px;
+        border-bottom: 1px solid black;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        top: 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    
+
+    .nav-button {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        padding-left: 0;
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    .nav-section {
+        height: 40px;
+        background-color: navy;
+        display: block;
+    }
+
+    .phone-number {
+        display: flex;
+        font-size: 12px;
+        align-items: center;
+        text-align: center; /* Center text horizontally within the phone-number container */
+        
+    }
+    
+    .nav-button-call-now{
+        padding-right: 0px;
+    }
+
+    .phone-number .nav-button-call-now {
+        background-color: initial;
+        background-color: #050A30;
+        border-radius: 5px;
+        border-style: none;
+        box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Lato",Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 40px;
+        margin: auto auto;
+        outline: 0;
+        text-align: center;
+        transition: all .3s cubic-bezier(.05, .03, .35, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: center;
+        width: 120px;
+        padding-right: 0px;
+      }
+      
+      .phone-number .nav-button-call-now:hover {
+        background-color: #000C66;
+      }
+      
+      .nav-button-call-now:hover{
+        color: white;
+      }
+      .mobile-only-three-buttons{
+        position: relative;
+        top:0;
+        display: block;
+        background-color: #050A30;
+        height: 60px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .mobile-only-three-buttons .nav-button{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+        border: 1px solid white;
+        padding: 5px;
+        position: relative;
+        margin: 10px;
+        top: 17px;
+        border-radius: 4px;
+        
+
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        padding-right: 5px; /* Adjusted padding for simplicity */
+        
+    }
+    
+    
+}
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+
+.nav-button-call-now{
+    margin-left: 20px;
+    color: #3B3B3B;
+    text-decoration: none;
+    font-family: "Lato";
+}
+
+
+.blinking-number{
+    position: relative;
+    left: 10px;
+}
+
+/*CSS for the Banner */
+
+.banner {
+    display: flex;
+    background-color: #ffd300;
+    position: relative;
+    top: 89px;
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+.container-2,
+.container-3 {
+    box-sizing: border-box;
+    padding: 0 14px; /* Adjusted padding for spacing */
+    text-align: center;
+    flex: 1; /* Equal distribution of space for each container */
+}
+
+.container-1{
+    box-sizing: border-box;
+    padding: 0 14px; /* Adjusted padding for spacing */
+    text-align: left;
+    flex: 1; 
+    position: relative;
+    left: 30px;
+}
+
+.container-1 h2,
+.container-1 p {
+    font-family: "Roboto", sans-serif;
+    margin: 24.5px 0 3.5px;
+}
+
+.container-1 h1 {
+    font-size: 50px;
+    margin-top: 10.5px;
+    margin-bottom: 21px;
+    margin: 24.5px 0 3.5px;
+    font-family: "Rubik Doodle Shadow", "Roboto", sans-serif;
+    word-spacing: 10px;
+}
+
+.container-1 p {
+    margin-top: 1.5px;
+    margin-bottom: 10.5px;
+}
+
+/* Shared styles for images */
+.image-1,
+.image-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Take up the full width of the container */
+}
+
+.image-1 img,
+.image-2 img {
+    width: auto; /* Auto width */
+    height: 300px;
+    margin-bottom: 14px; /* Add margin between the image and text */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Use cubic-bezier for a more customized easing */
+    transform-origin: center center; /* Set the origin point to the center of the image */
+}
+
+.image-1 img:hover{
+    transform: scale(1.1);
+}
+
+.image-2 img:hover{
+    transform: scale(1.1);
+}
+
+.image-1 h4,
+.image-2 h4 {
+    font-size: 20px;
+    margin-top: 3.5px;
+    font-family: "Rubik Doodle Shadow" ,"Roboto", "Lato",  "Inter", sans-serif;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .banner {
+        flex-direction: column; /* Stack containers vertically on smaller screens */
+        position: relative;
+        top: 69px;
+    }
+
+    .container-1,
+    .container-2,
+    .container-3 {
+        order: 2; /* Change the order for responsiveness */
+    }
+
+    .container-1 h2,
+    .container-1 p,
+    .container-1 h1 {
+        font-size: 15px; /* Adjust font size for smaller screens */
+    }
+
+    .image-1{
+        flex-direction: row; /* Stack items vertically */
+        text-align: left;
+    }
+
+    .image-2 {
+        flex-direction:column-reverse; /* Stack items vertically */
+        text-align: left;
+    }
+
+    .image-1 img,
+    .image-2 img {
+        max-width: 60%; /* Ensure the image doesn't exceed its container */
+        height: auto; /* Set a fixed height for the images */
+        margin-bottom: 0px; /* Add margin between the image and text */
+    }
+
+    .image-2 img{
+        margin-bottom: -25px;
+        margin-top: -20px;
+    }
+
+    .container-1 {
+        left: 0;
+        right: 0;
+        order: 3; /* Change the order for responsiveness */
+    }
+}
+
+
+
+
+
+/* CSS for search button*/
+.button-search {
+  appearance: button;
+  background-color: black;
+  background-image: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "ITCAvantGardeStd-Bk",Arial,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 22px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-bottom: 33px;
+  margin-top: 16px;
+ text-decoration: none; 
+}
+
+.button-search:focus {
+  text-decoration: none;
+}
+
+.button-search:hover {
+  text-decoration: none;
+}
+
+.button-search:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.button-search:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+
+
+@media (max-width: 768px) {
+    .button-search {
+        height: 50px;
+        width: 80%;
+        padding: 12px 0; /* Adjust padding for smaller screens */
+        margin: 10px auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+}
+
+.button-search:focus {
+    text-decoration: none;
+}
+
+.button-search:hover {
+    text-decoration: none;
+}
+
+.button-search:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+}
+
+.button-search:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
